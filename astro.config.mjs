@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 const base = process.env.ASTRO_BASE ?? (process.env.NODE_ENV === 'production' ? '/lp-chaveiro-campinas/' : '/');
 
 export default defineConfig({
-  site: 'https://heliezer.github.io',
+  site: 'https://heli2047-source.github.io',
   base: base,
   output: 'static',
   integrations: [tailwind()],
