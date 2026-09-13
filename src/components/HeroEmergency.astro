@@ -1,0 +1,78 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappDefaultMessage)}`;
+---
+
+<section class="relative pt-6 sm:pt-12 pb-12 sm:pb-16 overflow-hidden border-b border-rescue-border/80">
+  <!-- Fundo com gradiente radial sutil de emergência -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(245,158,11,0.15),transparent_70%)] pointer-events-none"></div>
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+    <!-- Eyebrow Pill Badge (Urgência & Localização) -->
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rescue-amber/10 border border-rescue-amber/30 text-rescue-amber text-xs sm:text-sm font-bold tracking-wide uppercase shadow-sm mb-4">
+      <span class="w-2 h-2 rounded-full bg-rescue-amber animate-pulse"></span>
+      🚨 Socorro Automotivo Móvel 24 Horas em Campinas
+    </div>
+
+    <!-- H1 Headline Matadora focada na dor imediata -->
+    <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.15] mb-4">
+      Ficou para fora do carro? <br />
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-rescue-amber via-yellow-400 to-amber-500">
+        Chegamos em até 30 minutos.
+      </span>
+    </h1>
+
+    <!-- Subheadline clara com quebra de objeções -->
+    <p class="text-base sm:text-xl text-rescue-text-muted max-w-2xl mx-auto leading-relaxed mb-8">
+      Abertura rápida sem arrombamento, chaves codificadas e presença (Keyless) feitas no local. <strong class="text-white font-semibold">Sem riscar a lataria</strong> e com valor até <span class="text-emerald-400 font-bold">60% menor</span> que a concessionária.
+    </p>
+
+    <!-- Caixa de CTAs de Alta Conversão Mobile-First -->
+    <div class="flex flex-col sm:flex-row items-stretch justify-center gap-3 sm:gap-4 max-w-lg mx-auto mb-8">
+      <!-- Botão WhatsApp Gigante (Primary) -->
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="touch-target min-h-[56px] px-6 py-4 rounded-xl bg-rescue-whatsapp hover:bg-rescue-whatsapp-hover text-rescue-bg font-black text-base sm:text-lg flex items-center justify-center gap-3 shadow-lg whatsapp-glow transition-all transform active:scale-95"
+      >
+        <span class="text-2xl animate-bounce">💬</span>
+        <div class="text-left">
+          <span class="block text-xs uppercase tracking-wider font-extrabold opacity-90">Atendimento Imediato</span>
+          <span>CHAMAR NO WHATSAPP</span>
+        </div>
+      </a>
+
+      <!-- Botão Click-to-Call (Secondary) -->
+      <a
+        href={`tel:${siteConfig.phoneRaw}`}
+        class="touch-target min-h-[56px] px-6 py-4 rounded-xl bg-rescue-bg-elevated hover:bg-rescue-surface border-2 border-rescue-amber text-white font-bold text-base flex items-center justify-center gap-3 transition-all active:scale-95"
+      >
+        <span class="text-xl text-rescue-amber">📞</span>
+        <div class="text-left">
+          <span class="block text-[11px] uppercase tracking-wider text-rescue-amber font-extrabold">Ligue Grátis 24h</span>
+          <span class="font-black text-base sm:text-lg">{siteConfig.phoneDisplay}</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- 3 Micro-Selos de Confiança Imediata -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-4 max-w-2xl mx-auto pt-2 text-left sm:text-center">
+      <div class="flex items-center sm:justify-center gap-2.5 px-3 py-2 rounded-lg bg-rescue-surface/50 border border-rescue-border text-xs sm:text-sm text-slate-200">
+        <span class="text-base text-rescue-amber">⚡</span>
+        <span>Chegamos em <strong>até 30 min</strong></span>
+      </div>
+
+      <div class="flex items-center sm:justify-center gap-2.5 px-3 py-2 rounded-lg bg-rescue-surface/50 border border-rescue-border text-xs sm:text-sm text-slate-200">
+        <span class="text-base text-emerald-400">🛡️</span>
+        <span><strong>Sem danos</strong> ao veículo</span>
+      </div>
+
+      <div class="flex items-center sm:justify-center gap-2.5 px-3 py-2 rounded-lg bg-rescue-surface/50 border border-rescue-border text-xs sm:text-sm text-slate-200">
+        <span class="text-base text-blue-400">💳</span>
+        <span>Pix ou <strong>até 12x no cartão</strong></span>
+      </div>
+    </div>
+  </div>
+</section>

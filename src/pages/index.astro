@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroEmergency from '../components/HeroEmergency.astro';
+import QuickServices from '../components/QuickServices.astro';
+import Differentials from '../components/Differentials.astro';
+import BrandsSupported from '../components/BrandsSupported.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CoverageAreas from '../components/CoverageAreas.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { siteConfig } from '../data/siteConfig';
+---
+
+<BaseLayout
+  title={`${siteConfig.name} | Socorro em até 30 Minutos`}
+  description="Ficou para fora do carro? Chaveiro automotivo 24 horas em Campinas e região. Abertura técnica sem riscos, chaves codificadas e presença com preço até 60% menor que concessionária."
+>
+  <!-- Dobra 1: Hero de Alta Conversão com foco em Emergência Mobile -->
+  <HeroEmergency />
+
+  <!-- Dobra 2: Serviços de Solução Rápida (Chaves codificadas, presença, canivete, abertura) -->
+  <QuickServices />
+
+  <!-- Dobra 3: Quebra de Objeções (Comparativo vs Concessionária & Sem Danos) -->
+  <Differentials />
+
+  <!-- Montadoras Atendidas (Nacionais e Importadas) -->
+  <BrandsSupported />
+
+  <!-- Dobra 4: Prova Social & Depoimentos Reais 5 Estrelas -->
+  <Testimonials />
+
+  <!-- Cobertura Regional Completa (SEO Local Campinas e RMC) -->
+  <CoverageAreas />
+
+  <!-- Perguntas Frequentes de Emergência -->
+  <FaqSection />
+
+  <!-- Faixa Final de Alerta Antes do Rodapé -->
+  <section class="py-10 bg-gradient-to-r from-rescue-bg-elevated via-rescue-surface to-rescue-bg-elevated border-b border-rescue-border text-center px-4">
+    <div class="max-w-3xl mx-auto space-y-4">
+      <span class="text-xs font-bold uppercase tracking-wider text-rescue-amber">
+        🚨 Atendimento Móvel de Plantão Agora
+      </span>
+      <h2 class="text-2xl sm:text-3xl font-black text-white">
+        Precisa de Socorro Imediato com Seu Carro?
+      </h2>
+      <p class="text-xs sm:text-sm text-rescue-text-muted">
+        Envie sua localização pelo WhatsApp ou faça uma ligação direta. Nossa van mais próxima parte imediatamente.
+      </p>
+      <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a
+          href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappDefaultMessage)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="touch-target min-h-[50px] w-full sm:w-auto px-6 py-3 rounded-xl bg-rescue-whatsapp hover:bg-rescue-whatsapp-hover text-rescue-bg font-black text-sm flex items-center justify-center gap-2 shadow-lg whatsapp-glow transition-all"
+        >
+          <span>💬</span>
+          <span>Chamar Van Móvel no WhatsApp</span>
+        </a>
+        <a
+          href={`tel:${siteConfig.phoneRaw}`}
+          class="touch-target min-h-[50px] w-full sm:w-auto px-6 py-3 rounded-xl bg-rescue-surface hover:bg-rescue-border text-white border border-rescue-border font-bold text-sm flex items-center justify-center gap-2 transition-all"
+        >
+          <span>📞</span>
+          <span>Ligar: {siteConfig.phoneDisplay}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,75 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-black border-t border-rescue-border text-rescue-text-muted py-12 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-xs sm:text-sm">
+    <!-- Coluna 1: Dados da Empresa -->
+    <div class="space-y-3">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">🔑</span>
+        <span class="font-extrabold text-white text-base">
+          {siteConfig.tradeName}
+        </span>
+      </div>
+      <p class="text-rescue-text-dim text-xs leading-relaxed">
+        Especialistas em chaves codificadas, presença e abertura técnica de veículos sem danos. Plantão móvel 24 horas em Campinas e RMC.
+      </p>
+      <div class="text-xs text-rescue-text-dim pt-1 space-y-1">
+        <p><strong>CNPJ:</strong> {siteConfig.cnpj}</p>
+        <p><strong>Base Móvel:</strong> {siteConfig.address}</p>
+      </div>
+    </div>
+
+    <!-- Coluna 2: Contato Rápido de Emergência -->
+    <div class="space-y-3">
+      <span class="font-bold text-white text-sm block uppercase tracking-wider">
+        Central de Plantão 24h
+      </span>
+      <ul class="space-y-2 text-xs">
+        <li class="flex items-center gap-2 text-slate-200">
+          <span class="text-rescue-amber">📞</span>
+          <a href={`tel:${siteConfig.phoneRaw}`} class="hover:text-rescue-amber transition-colors font-bold">
+            {siteConfig.phoneDisplay} (Ligue Grátis)
+          </a>
+        </li>
+        <li class="flex items-center gap-2 text-slate-200">
+          <span class="text-emerald-400">💬</span>
+          <a
+            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappDefaultMessage)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-emerald-400 transition-colors font-bold"
+          >
+            WhatsApp Plantão Imediato
+          </a>
+        </li>
+        <li class="text-rescue-text-dim">
+          ⏰ Atendimento ininterrupto de Domingo a Domingo
+        </li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3: Compliance Google Ads & Informações Legais -->
+    <div class="space-y-3">
+      <span class="font-bold text-white text-sm block uppercase tracking-wider">
+        Segurança e Conformidade
+      </span>
+      <p class="text-xs text-rescue-text-dim leading-relaxed">
+        Página de demonstração desenvolvida para fins de exibição de portfólio de landing pages de alta conversão para pequenos negócios locais.
+      </p>
+      <div class="flex flex-wrap gap-3 pt-2 text-xs">
+        <a href="#termos" class="hover:text-white underline text-rescue-text-dim">Termos de Uso</a>
+        <span class="text-rescue-border">•</span>
+        <a href="#privacidade" class="hover:text-white underline text-rescue-text-dim">Política de Privacidade</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto border-t border-rescue-border/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-rescue-text-dim">
+    <p>© {currentYear} {siteConfig.tradeName}. Todos os direitos reservados.</p>
+    <p>Site de demonstração otimizado com Astro 5 & Tailwind CSS.</p>
+  </div>
+</footer>

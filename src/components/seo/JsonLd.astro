@@ -1,0 +1,64 @@
+---
+import { siteConfig } from '../../data/siteConfig';
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': ['Locksmith', 'AutoRepair'],
+  name: siteConfig.name,
+  legalName: siteConfig.tradeName,
+  description: siteConfig.tagline,
+  url: Astro.url.href,
+  telephone: siteConfig.phoneRaw,
+  priceRange: '$$',
+  image: new URL('/favicon.svg', Astro.site || 'https://heliezer.github.io').href,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Av. José de Souza Campos, Cambuí',
+    addressLocality: siteConfig.city,
+    addressRegion: siteConfig.state,
+    addressCountry: 'BR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -22.9056,
+    longitude: -47.0608,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '00:00',
+      closes: '23:59',
+    },
+  ],
+  areaServed: [
+    ...siteConfig.coverage.neighborhoods.map((n) => ({
+      '@type': 'AdministrativeArea',
+      name: `${n}, Campinas - SP`,
+    })),
+    ...siteConfig.coverage.metroCities.map((c) => ({
+      '@type': 'City',
+      name: `${c} - SP`,
+    })),
+  ],
+  paymentAccepted: 'Cash, Credit Card, Debit Card, Pix',
+  currenciesAccepted: 'BRL',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: siteConfig.rating.score,
+    reviewCount: siteConfig.rating.count,
+    bestRating: '5',
+    worstRating: '1',
+  },
+};
+---
+
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schemaData)} />

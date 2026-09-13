@@ -1,0 +1,53 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = '/favicon.svg',
+} = Astro.props;
+
+const siteTitle = title;
+const fullOgImage = ogImage.startsWith('http')
+  ? ogImage
+  : new URL(ogImage, Astro.site || 'https://heliezer.github.io').href;
+---
+
+<!-- Metatags Primárias -->
+<title>{siteTitle}</title>
+<meta name="title" content={siteTitle} />
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<meta name="theme-color" content="#0A0F1D" />
+
+<!-- Geo Tags para SEO Local (Campinas - SP) -->
+<meta name="geo.region" content="BR-SP" />
+<meta name="geo.placename" content="Campinas" />
+<meta name="geo.position" content="-22.9056;-47.0608" />
+<meta name="ICBM" content="-22.9056, -47.0608" />
+
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:site_name" content="Chaveiro Automotivo Campinas 24h" />
+<meta property="og:locale" content="pt_BR" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={siteTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+
+<!-- Indexação -->
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />

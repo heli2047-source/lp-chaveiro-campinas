@@ -1,0 +1,63 @@
+---
+import { siteConfig } from '../data/siteConfig';
+---
+
+<section class="py-12 sm:py-16 bg-rescue-bg-card border-b border-rescue-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rescue-amber/10 border border-rescue-amber/30 text-rescue-amber text-xs font-bold uppercase tracking-wider mb-2">
+        📍 Cobertura Regional Completa
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+        Atendimento Móvel em Toda Campinas e RMC
+      </h2>
+      <p class="mt-2 text-xs sm:text-sm text-rescue-text-muted">
+        Nossas unidades móveis circulam pelos principais pontos estratégicos para garantir chegada rápida em menos de 30 minutos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left">
+      <!-- Bairros de Campinas -->
+      <div class="p-5 rounded-xl bg-rescue-surface/40 border border-rescue-border">
+        <h3 class="text-sm font-extrabold text-white flex items-center gap-2 mb-3">
+          <span class="text-rescue-amber">🏙️</span> Bairros de Campinas
+        </h3>
+        <div class="flex flex-wrap gap-1.5">
+          {siteConfig.coverage.neighborhoods.map((neighborhood) => (
+            <span class="text-[11px] px-2.5 py-1 rounded-md bg-rescue-bg-elevated text-slate-300 border border-rescue-border/70">
+              {neighborhood}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Cidades Vizinhas (RMC) -->
+      <div class="p-5 rounded-xl bg-rescue-surface/40 border border-rescue-border">
+        <h3 class="text-sm font-extrabold text-white flex items-center gap-2 mb-3">
+          <span class="text-blue-400">🗺️</span> Cidades Vizinhas (RMC)
+        </h3>
+        <div class="flex flex-wrap gap-1.5">
+          {siteConfig.coverage.metroCities.map((city) => (
+            <span class="text-[11px] px-2.5 py-1 rounded-md bg-rescue-bg-elevated text-slate-300 border border-rescue-border/70">
+              {city}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Rodovias e Acessos -->
+      <div class="p-5 rounded-xl bg-rescue-surface/40 border border-rescue-border">
+        <h3 class="text-sm font-extrabold text-white flex items-center gap-2 mb-3">
+          <span class="text-emerald-400">🛣️</span> Rodovias e Postos
+        </h3>
+        <div class="flex flex-col gap-2">
+          {siteConfig.coverage.highways.map((highway) => (
+            <span class="text-[11px] px-2.5 py-1 rounded-md bg-rescue-bg-elevated text-slate-300 border border-rescue-border/70">
+              {highway}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

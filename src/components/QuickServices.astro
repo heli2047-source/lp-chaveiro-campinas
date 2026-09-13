@@ -1,0 +1,73 @@
+---
+import { siteConfig } from '../data/siteConfig';
+---
+
+<section id="servicos" class="py-12 sm:py-16 bg-rescue-bg-card border-b border-rescue-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Cabeçalho da Seção -->
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider mb-3">
+        🔧 Soluções Automotivas Imediatas
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
+        O Que Aconteceu Com o Seu Carro?
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-rescue-text-muted">
+        Nossas vans-oficina chegam equipadas com maquinário pantográfico e computador de bordo para resolver na hora.
+      </p>
+    </div>
+
+    <!-- Grid de Serviços -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      {siteConfig.services.map((service) => {
+        const serviceWhatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Olá! Preciso de atendimento para *${service.title}* em Campinas.`)}`;
+
+        return (
+          <div class="bg-rescue-surface/60 hover:bg-rescue-surface border border-rescue-border/80 hover:border-rescue-amber/50 rounded-2xl p-5 sm:p-6 transition-all flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-3xl p-2.5 rounded-xl bg-rescue-bg-elevated border border-rescue-border/80 inline-block">
+                  {service.icon}
+                </span>
+                {service.badge && (
+                  <span class="px-2.5 py-0.5 rounded-full text-[11px] font-extrabold bg-rescue-amber/15 text-rescue-amber border border-rescue-amber/30">
+                    {service.badge}
+                  </span>
+                )}
+              </div>
+
+              <h3 class="text-lg font-black text-white group-hover:text-rescue-amber transition-colors mb-2">
+                {service.title}
+              </h3>
+
+              <p class="text-xs sm:text-sm text-rescue-text-muted leading-relaxed mb-4">
+                {service.shortDesc}
+              </p>
+
+              <!-- Lista de Vantagens Rápidas -->
+              <ul class="space-y-1.5 mb-6 text-xs text-slate-300">
+                {service.features.map((feat) => (
+                  <li class="flex items-center gap-2">
+                    <span class="text-emerald-400 font-bold">✓</span>
+                    <span>{feat}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Botão de Solicitação Direta -->
+            <a
+              href={serviceWhatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="touch-target w-full py-2.5 px-4 rounded-xl bg-rescue-bg-elevated hover:bg-rescue-whatsapp hover:text-rescue-bg text-rescue-amber border border-rescue-border hover:border-transparent font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all"
+            >
+              <span>Resolver Esse Problema</span>
+              <span>→</span>
+            </a>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

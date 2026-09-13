@@ -1,0 +1,49 @@
+---
+import SeoMeta from '../components/seo/SeoMeta.astro';
+import JsonLd from '../components/seo/JsonLd.astro';
+import EmergencyHeader from '../components/EmergencyHeader.astro';
+import Footer from '../components/Footer.astro';
+import MobileStickyBar from '../components/MobileStickyBar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Chaveiro Automotivo em Campinas 24h | Chaves Codificadas e Abertura Rápida',
+  description = 'Socorro automotivo 24 horas em Campinas e região. Abertura técnica sem danos, chave codificada e presença em até 30 minutos. Preço justo e até 60% menor que concessionária.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <SeoMeta title={title} description={description} />
+    <JsonLd />
+  </head>
+  <body class="bg-rescue-bg text-rescue-text selection:bg-rescue-amber selection:text-rescue-bg">
+    <!-- Cabeçalho de Emergência com status ao vivo -->
+    <EmergencyHeader />
+
+    <!-- Conteúdo da Página -->
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Rodapé Completo com Compliance Google Ads -->
+    <Footer />
+
+    <!-- Barra de Ação Rápida Fixa no Rodapé para Mobile -->
+    <MobileStickyBar />
+  </body>
+</html>

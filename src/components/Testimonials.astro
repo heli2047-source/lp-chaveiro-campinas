@@ -1,0 +1,59 @@
+---
+import { siteConfig } from '../data/siteConfig';
+---
+
+<section class="py-12 sm:py-16 bg-rescue-bg border-b border-rescue-border">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <!-- Cabeçalho -->
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-bold uppercase tracking-wider mb-2">
+        <span>⭐</span> Avaliação {siteConfig.rating.score} no Google ({siteConfig.rating.count} avaliações)
+      </div>
+      <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
+        Quem Precisou de Socorro Recomenda
+      </h2>
+      <p class="mt-2 text-sm sm:text-base text-rescue-text-muted">
+        Veja a experiência real de motoristas atendidos em emergências pela nossa equipe em Campinas.
+      </p>
+    </div>
+
+    <!-- Cards de Depoimentos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+      {siteConfig.testimonials.map((item) => (
+        <div class="p-6 rounded-2xl bg-rescue-surface/50 border border-rescue-border flex flex-col justify-between hover:border-rescue-amber/40 transition-colors">
+          <div>
+            <!-- Estrelas e Tempo -->
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex text-amber-400 text-sm tracking-tight">
+                {'★'.repeat(item.rating)}
+              </div>
+              <span class="text-[11px] text-rescue-text-dim">
+                {item.timeAgo}
+              </span>
+            </div>
+
+            <!-- Texto do Depoimento -->
+            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed italic mb-4">
+              "{item.text}"
+            </p>
+          </div>
+
+          <!-- Autor e Veículo -->
+          <div class="flex items-center justify-between border-t border-rescue-border/60 pt-3 text-xs">
+            <div>
+              <span class="font-extrabold text-white block">
+                {item.name}
+              </span>
+              <span class="text-rescue-text-muted text-[11px]">
+                {item.location}
+              </span>
+            </div>
+            <span class="px-2.5 py-1 rounded bg-rescue-bg-elevated text-rescue-amber text-[11px] font-semibold border border-rescue-border">
+              {item.vehicle}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

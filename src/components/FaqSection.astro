@@ -1,0 +1,32 @@
+---
+import { siteConfig } from '../data/siteConfig';
+---
+
+<section id="faq" class="py-12 sm:py-16 bg-rescue-bg border-b border-rescue-border">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+        ❓ Dúvidas Frequentes
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
+        Perguntas Rápidas de Emergência
+      </h2>
+    </div>
+
+    <div class="space-y-4">
+      {siteConfig.faqs.map((faq) => (
+        <details class="group bg-rescue-surface/50 border border-rescue-border rounded-xl p-4 sm:p-5 transition-all open:border-rescue-amber/50">
+          <summary class="flex items-center justify-between cursor-pointer font-bold text-sm sm:text-base text-white list-none gap-4">
+            <span>{faq.q}</span>
+            <span class="text-rescue-amber text-lg transition-transform group-open:rotate-180">
+              ▼
+            </span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-rescue-text-muted leading-relaxed border-t border-rescue-border/50 pt-3">
+            {faq.a}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

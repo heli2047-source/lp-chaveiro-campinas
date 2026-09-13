@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Design Tokens & Estilos Globais — Chaveiro Automotivo 24h (Emergência)
+   Tema: Deep Night Asphalt + Emergency Amber + WhatsApp Emerald
+   ========================================================================== */
+
+:root {
+  --rescue-bg: #0A0F1D;
+  --rescue-bg-card: #111827;
+  --rescue-bg-elevated: #161F36;
+  --rescue-surface: #1E293B;
+  --rescue-border: #334155;
+  --rescue-amber: #F59E0B;
+  --rescue-blue: #2563EB;
+  --rescue-whatsapp: #22C55E;
+  --rescue-text: #F8FAFC;
+  --rescue-text-muted: #94A3B8;
+}
+
+html {
+  background-color: var(--rescue-bg);
+  color: var(--rescue-text);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--rescue-bg);
+  color: var(--rescue-text);
+  overflow-x: hidden;
+  /* Margem inferior para a barra fixa mobile de emergência */
+  padding-bottom: 76px;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Foco de acessibilidade para navegação por teclado */
+:focus-visible {
+  outline: 2px solid var(--rescue-amber);
+  outline-offset: 2px;
+}
+
+/* Área de toque padrão para Mobile (Apple HIG e Material Design) */
+.touch-target {
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Efeito de brilho de emergência pulsante */
+.emergency-glow {
+  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.4);
+}
+
+.whatsapp-glow {
+  box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.45);
+}

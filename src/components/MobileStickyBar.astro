@@ -1,0 +1,37 @@
+---
+import { siteConfig } from '../data/siteConfig';
+
+const whatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappDefaultMessage)}`;
+---
+
+<div class="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-rescue-bg/95 backdrop-blur border-t border-rescue-border p-2.5 shadow-2xl">
+  <div class="grid grid-cols-2 gap-2 max-w-md mx-auto">
+    <!-- Botão Ligar Agora 24h -->
+    <a
+      href={`tel:${siteConfig.phoneRaw}`}
+      class="touch-target min-h-[50px] px-3 py-2 rounded-xl bg-rescue-bg-elevated hover:bg-rescue-surface border border-rescue-amber/60 text-white font-black text-xs flex items-center justify-center gap-2 active:scale-95 transition-all shadow-md"
+      aria-label="Ligar para socorro 24 horas"
+    >
+      <span class="text-lg text-rescue-amber">📞</span>
+      <div class="text-left leading-tight">
+        <span class="block text-[10px] text-rescue-amber uppercase font-extrabold tracking-wider">Emergência</span>
+        <span>LIGAR AGORA</span>
+      </div>
+    </a>
+
+    <!-- Botão Chamar WhatsApp -->
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="touch-target min-h-[50px] px-3 py-2 rounded-xl bg-rescue-whatsapp hover:bg-rescue-whatsapp-hover text-rescue-bg font-black text-xs flex items-center justify-center gap-2 active:scale-95 transition-all shadow-lg whatsapp-glow"
+      aria-label="Chamar socorro pelo WhatsApp"
+    >
+      <span class="text-xl animate-pulse">💬</span>
+      <div class="text-left leading-tight">
+        <span class="block text-[10px] uppercase font-extrabold tracking-wider opacity-90">Em 30 min</span>
+        <span>WHATSAPP</span>
+      </div>
+    </a>
+  </div>
+</div>
