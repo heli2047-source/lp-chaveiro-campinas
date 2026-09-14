@@ -25,7 +25,7 @@ export const siteConfig = {
   phoneRaw: '+5519998847292',
   whatsappNumber: '5519998847292',
   whatsappDefaultMessage: 'Olá Chaveiro Rodrigues! Preciso de atendimento em Campinas. Meu problema/local é: ',
-  address: 'Atendimento Móvel em toda Campinas e RMC — Base Central: Av. José de Souza Campos, Cambuí, Campinas - SP',
+  address: 'Av. General Carneiro, 411, Campinas - SP',
   city: 'Campinas',
   state: 'SP',
   companyName: 'Tecnochave Chaveiros Ltda-ME',
