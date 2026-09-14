@@ -12,8 +12,8 @@ interface Props {
 }
 
 const {
-  title = 'Chaveiro Automotivo em Campinas 24h | Chaves Codificadas e Abertura Rápida',
-  description = 'Socorro automotivo 24 horas em Campinas e região. Abertura técnica sem danos, chave codificada e presença em até 30 minutos. Preço justo e até 60% menor que concessionária.',
+  title = 'Chaveiro Rodrigues 24h | Chaveiro Residencial e Automotivo em Campinas',
+  description = 'Socorro 24 horas em Campinas e região: abertura técnica de veículos e residências, chaves codificadas, carga de bateria e troca de pneus em até 30 minutos.',
 } = Astro.props;
 ---
 
@@ -31,8 +31,8 @@ const {
     <SeoMeta title={title} description={description} />
     <JsonLd />
   </head>
-  <body class="bg-rescue-bg text-rescue-text selection:bg-rescue-amber selection:text-rescue-bg">
-    <!-- Cabeçalho de Emergência com status ao vivo -->
+  <body class="bg-rescue-bg text-rescue-text selection:bg-rescue-red selection:text-white">
+    <!-- Cabeçalho de Emergência com status ao vivo e logomarca -->
     <EmergencyHeader />
 
     <!-- Conteúdo da Página -->

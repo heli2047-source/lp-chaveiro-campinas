@@ -11,14 +11,17 @@ import { siteConfig } from '../data/siteConfig';
       <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight">
         Perguntas Rápidas de Emergência
       </h2>
+      <p class="mt-2 text-xs sm:text-sm text-rescue-text-muted">
+        Respostas diretas sobre tempo de atendimento, métodos e formas de pagamento do Chaveiro Rodrigues.
+      </p>
     </div>
 
     <div class="space-y-4">
       {siteConfig.faqs.map((faq) => (
-        <details class="group bg-rescue-surface/50 border border-rescue-border rounded-xl p-4 sm:p-5 transition-all open:border-rescue-amber/50">
+        <details class="group bg-rescue-surface/50 border border-rescue-border rounded-2xl p-4 sm:p-5 transition-all open:border-rescue-red/60 shadow-sm">
           <summary class="flex items-center justify-between cursor-pointer font-bold text-sm sm:text-base text-white list-none gap-4">
             <span>{faq.q}</span>
-            <span class="text-rescue-amber text-lg transition-transform group-open:rotate-180">
+            <span class="text-rescue-red-light text-lg transition-transform group-open:rotate-180">
               ▼
             </span>
           </summary>

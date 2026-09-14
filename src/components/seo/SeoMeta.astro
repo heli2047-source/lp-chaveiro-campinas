@@ -10,7 +10,7 @@ const {
   title,
   description,
   canonicalUrl = Astro.url.href,
-  ogImage = '/favicon.svg',
+  ogImage = `${import.meta.env.BASE_URL}images/logo.png`,
 } = Astro.props;
 
 const siteTitle = title;
@@ -25,7 +25,7 @@ const fullOgImage = ogImage.startsWith('http')
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-<meta name="theme-color" content="#0A0F1D" />
+<meta name="theme-color" content="#080C14" />
 
 <!-- Geo Tags para SEO Local (Campinas - SP) -->
 <meta name="geo.region" content="BR-SP" />
@@ -39,7 +39,7 @@ const fullOgImage = ogImage.startsWith('http')
 <meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={fullOgImage} />
-<meta property="og:site_name" content="Chaveiro Automotivo Campinas 24h" />
+<meta property="og:site_name" content="Chaveiro Rodrigues 24h" />
 <meta property="og:locale" content="pt_BR" />
 
 <!-- Twitter Cards -->

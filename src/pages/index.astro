@@ -11,16 +11,16 @@ import { siteConfig } from '../data/siteConfig';
 ---
 
 <BaseLayout
-  title={`${siteConfig.name} | Socorro em até 30 Minutos`}
-  description="Ficou para fora do carro? Chaveiro automotivo 24 horas em Campinas e região. Abertura técnica sem riscos, chaves codificadas e presença com preço até 60% menor que concessionária."
+  title={`${siteConfig.name} | Socorro Residencial e Automotivo em até 30 Minutos`}
+  description="Trancado para fora do carro ou de casa? Chaveiro Rodrigues 24 horas em Campinas e região. Abertura técnica sem danos, chaves codificadas, carga de bateria e troca de pneus em até 30 minutos."
 >
   <!-- Dobra 1: Hero de Alta Conversão com foco em Emergência Mobile -->
   <HeroEmergency />
 
-  <!-- Dobra 2: Serviços de Solução Rápida (Chaves codificadas, presença, canivete, abertura) -->
+  <!-- Dobra 2: Serviços de Solução Rápida (Automotivo, Residencial e Socorro Mecânico Leve) -->
   <QuickServices />
 
-  <!-- Dobra 3: Quebra de Objeções (Comparativo vs Concessionária & Sem Danos) -->
+  <!-- Dobra 3: Quebra de Objeções (Comparativo Chaveiro Rodrigues vs Concessionária & Sem Danos) -->
   <Differentials />
 
   <!-- Montadoras Atendidas (Nacionais e Importadas) -->
@@ -36,32 +36,33 @@ import { siteConfig } from '../data/siteConfig';
   <FaqSection />
 
   <!-- Faixa Final de Alerta Antes do Rodapé -->
-  <section class="py-10 bg-gradient-to-r from-rescue-bg-elevated via-rescue-surface to-rescue-bg-elevated border-b border-rescue-border text-center px-4">
-    <div class="max-w-3xl mx-auto space-y-4">
-      <span class="text-xs font-bold uppercase tracking-wider text-rescue-amber">
-        🚨 Atendimento Móvel de Plantão Agora
+  <section class="py-12 bg-gradient-to-r from-rescue-bg-elevated via-rescue-surface to-rescue-bg-elevated border-b border-rescue-border text-center px-4 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(218,25,7,0.12),transparent_70%)] pointer-events-none"></div>
+    <div class="max-w-3xl mx-auto space-y-4 relative z-10">
+      <span class="text-xs font-bold uppercase tracking-wider text-rescue-red-light">
+        🚨 Plantão Móvel em Operação Agora
       </span>
-      <h2 class="text-2xl sm:text-3xl font-black text-white">
-        Precisa de Socorro Imediato com Seu Carro?
+      <h2 class="text-2xl sm:text-4xl font-black text-white">
+        Precisa de Atendimento com Urgência?
       </h2>
-      <p class="text-xs sm:text-sm text-rescue-text-muted">
-        Envie sua localização pelo WhatsApp ou faça uma ligação direta. Nossa van mais próxima parte imediatamente.
+      <p class="text-xs sm:text-sm text-rescue-text-muted max-w-xl mx-auto">
+        Envie sua localização pelo WhatsApp ou ligue agora mesmo. O profissional mais próximo do Chaveiro Rodrigues parte imediatamente até você.
       </p>
       <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
         <a
           href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappDefaultMessage)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="touch-target min-h-[50px] w-full sm:w-auto px-6 py-3 rounded-xl bg-rescue-whatsapp hover:bg-rescue-whatsapp-hover text-rescue-bg font-black text-sm flex items-center justify-center gap-2 shadow-lg whatsapp-glow transition-all"
+          class="touch-target min-h-[52px] w-full sm:w-auto px-6 py-3 rounded-xl bg-rescue-whatsapp hover:bg-rescue-whatsapp-hover text-rescue-bg font-black text-sm flex items-center justify-center gap-2 shadow-lg whatsapp-glow transition-all"
         >
           <span>💬</span>
-          <span>Chamar Van Móvel no WhatsApp</span>
+          <span>Chamar no WhatsApp (19) 9988-4792</span>
         </a>
         <a
           href={`tel:${siteConfig.phoneRaw}`}
-          class="touch-target min-h-[50px] w-full sm:w-auto px-6 py-3 rounded-xl bg-rescue-surface hover:bg-rescue-border text-white border border-rescue-border font-bold text-sm flex items-center justify-center gap-2 transition-all"
+          class="touch-target min-h-[52px] w-full sm:w-auto px-6 py-3 rounded-xl bg-rescue-surface hover:bg-rescue-border text-white border border-rescue-red/50 hover:border-rescue-red font-bold text-sm flex items-center justify-center gap-2 transition-all shadow-sm"
         >
-          <span>📞</span>
+          <span class="text-rescue-red-light">📞</span>
           <span>Ligar: {siteConfig.phoneDisplay}</span>
         </a>
       </div>

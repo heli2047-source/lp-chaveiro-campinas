@@ -10,7 +10,7 @@ const schemaData = {
   url: Astro.url.href,
   telephone: siteConfig.phoneRaw,
   priceRange: '$$',
-  image: new URL('/favicon.svg', Astro.site || 'https://heli2047-source.github.io').href,
+  image: new URL(`${import.meta.env.BASE_URL}images/logo.png`, Astro.site || 'https://heli2047-source.github.io').href,
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Av. José de Souza Campos, Cambuí',

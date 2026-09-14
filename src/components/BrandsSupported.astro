@@ -4,18 +4,18 @@ import { siteConfig } from '../data/siteConfig';
 
 <section class="py-10 sm:py-14 bg-rescue-bg-card/70 border-b border-rescue-border">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
-    <span class="text-xs font-bold uppercase tracking-wider text-rescue-amber">
-      Marcas Nacionais e Importadas
+    <span class="text-xs font-bold uppercase tracking-wider text-rescue-red-light">
+      Montadoras Nacionais e Importadas
     </span>
     <h2 class="text-xl sm:text-2xl font-black text-white mt-1 mb-6">
-      Atendemos Todas as Montadoras e Modelos
+      Atendimento Completo para Todas as Marcas e Modelos
     </h2>
 
     <!-- Grid de Montadoras -->
     <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-2.5 sm:gap-3">
       {siteConfig.brands.map((brand) => (
-        <div class="px-3 py-2.5 rounded-xl bg-rescue-surface/60 border border-rescue-border flex flex-col items-center justify-center hover:border-rescue-amber/40 transition-colors">
-          <span class="text-[10px] font-black tracking-widest text-rescue-amber opacity-75 uppercase">
+        <div class="px-3 py-2.5 rounded-xl bg-rescue-surface/60 border border-rescue-border flex flex-col items-center justify-center hover:border-rescue-red/40 transition-colors">
+          <span class="text-[10px] font-black tracking-widest text-rescue-red-light opacity-80 uppercase">
             {brand.logo}
           </span>
           <span class="text-xs font-bold text-slate-200 mt-0.5">
@@ -26,7 +26,7 @@ import { siteConfig } from '../data/siteConfig';
     </div>
 
     <p class="text-xs text-rescue-text-muted mt-5">
-      Carros populares, SUVs, picapes, veículos blindados e importados premium. Possuímos lâminas e chips para mais de 500 modelos.
+      Carros populares, sedans, SUVs, picapes, vans e importados premium. Possuímos tecnologia para transponders e lâminas de mais de 500 modelos.
     </p>
   </div>
 </section>

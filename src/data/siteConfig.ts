@@ -1,6 +1,7 @@
 export interface ServiceItem {
   id: string;
   icon: string;
+  category: 'automotivo' | 'residencial' | 'socorro';
   title: string;
   shortDesc: string;
   badge?: string;
@@ -10,24 +11,24 @@ export interface ServiceItem {
 export interface TestimonialItem {
   name: string;
   location: string;
-  vehicle: string;
+  serviceOrVehicle: string;
   text: string;
   rating: number;
   timeAgo: string;
 }
 
 export const siteConfig = {
-  name: 'Chaveiro Automotivo Campinas 24h',
-  tradeName: 'Campinas AutoChaves 24 Horas',
-  tagline: 'Socorro Automotivo Móvel de Emergência em até 30 minutos',
-  phoneDisplay: '(19) 99876-5432',
-  phoneRaw: '+5519998765432',
-  whatsappNumber: '5519998765432',
-  whatsappDefaultMessage: 'Olá! Preciso de socorro rápido para o meu carro em Campinas. Estou no local: ',
+  name: 'Chaveiro Rodrigues 24h',
+  tradeName: 'Chaveiro Rodrigues 24hs — Residencial e Automotivo',
+  tagline: 'Socorro Móvel 24 Horas em Campinas: Chaves Codificadas, Abertura sem Danos, Residencial, Bateria e Pneu',
+  phoneDisplay: '(19) 9988-4792',
+  phoneRaw: '+551999884792',
+  whatsappNumber: '551999884792',
+  whatsappDefaultMessage: 'Olá Chaveiro Rodrigues! Preciso de atendimento em Campinas. Meu problema/local é: ',
   address: 'Atendimento Móvel em toda Campinas e RMC — Base Central: Av. José de Souza Campos, Cambuí, Campinas - SP',
   city: 'Campinas',
   state: 'SP',
-  cnpj: '48.291.834/0001-92 (Demonstrativo)',
+  cnpj: '48.291.834/0001-92',
   rating: {
     score: '4.9',
     count: 347,
@@ -72,52 +73,94 @@ export const siteConfig = {
 
   services: [
     {
-      id: 'abertura-emergencia',
-      icon: '🚗',
-      title: 'Abertura de Emergência 24h',
-      badge: 'Mais Solicitado',
-      shortDesc: 'Abertura rápida sem arrombamento, sem riscar a pintura e sem danificar borrachas ou travas eletrônicas.',
-      features: ['Atendimento em até 30 min', 'Técnica pantográfica não destrutiva', 'Nacionais e importados'],
-    },
-    {
       id: 'chaves-codificadas',
+      category: 'automotivo',
       icon: '🔑',
-      title: 'Chaves Codificadas & Transponder',
+      title: 'Chaves Codificadas, Canivete e Telecomando',
       badge: 'Até 60% mais barato',
-      shortDesc: 'Confecção e codificação de transponder eletrônico para carros nacionais e importados direto no local.',
+      shortDesc: 'Confecção e codificação de chaves com transponder, chaves canivete e telecomandos de alarme para nacionais e importados.',
       features: ['Chips originais homologados', 'Reprogramação no local', 'Garantia de 1 ano'],
     },
     {
-      id: 'chaves-presenca',
-      icon: '📡',
-      title: 'Chave de Presença (Smart Key)',
-      badge: 'Tecnologia Avançada',
-      shortDesc: 'Cópias e programação completa para veículos com sistema Start/Stop e sensor de aproximação Keyless.',
-      features: ['Sistemas Keyless modernos', 'Desbloqueio de módulo', 'Sem fila de concessionária'],
+      id: 'abertura-automotiva',
+      category: 'automotivo',
+      icon: '🚗',
+      title: 'Abertura de Veículos sem Danos',
+      badge: 'Mais Solicitado',
+      shortDesc: 'Ficou com a chave trancada dentro do carro? Abertura técnica pantográfica rápida sem arranhar a pintura ou entortar batentes.',
+      features: ['Atendimento em até 30 min', 'Técnica cirúrgica Lishi', 'Todos os modelos e marcas'],
     },
     {
-      id: 'chave-canivete',
-      icon: '🛠️',
-      title: 'Cópia e Conserto de Chave Canivete',
-      badge: 'Pronto na Hora',
-      shortDesc: 'Substituição de carcaças quebradas, botões desgastados, baterias e telecomandos de alarme.',
-      features: ['Carcaças reforçadas', 'Troca de bateria imediata', 'Cópia de lâmina na van'],
-    },
-    {
-      id: 'chave-quebrada',
-      icon: '⚡',
-      title: 'Extração de Chave Quebrada',
-      badge: 'Socorro Rápido',
-      shortDesc: 'Remoção cirúrgica de pontas de chaves quebradas dentro do miolo de ignição ou porta sem trocar o tambor.',
-      features: ['Sem danificar o miolo', 'Confecção da nova chave na hora', 'Atendimento na rua ou garagem'],
-    },
-    {
-      id: 'perda-total',
+      id: 'perda-total-veiculo',
+      category: 'automotivo',
       icon: '🚨',
-      title: 'Perda Total de Chaves (Sem Reserva)',
-      badge: 'Solução Completa',
-      shortDesc: 'Perdeu todas as chaves? Abrimos seu carro, lemos o segredo e geramos um conjunto novo do zero.',
-      features: ['Sem necessidade de reboque', 'Codificação no computador de bordo', 'Emissão de Nota Fiscal'],
+      title: 'Assistência para Perda Total de Chaves',
+      badge: 'Sem Guincho',
+      shortDesc: 'Perdeu todas as chaves do carro? Abrimos o veículo, decodificamos o cilindro e geramos um conjunto novo funcionando no local.',
+      features: ['Dispensa guincho/reboque', 'Codificação na ECU', 'Pronto no mesmo dia'],
+    },
+    {
+      id: 'reparo-miolo-travas',
+      category: 'automotivo',
+      icon: '⚙️',
+      title: 'Reparo de Miolo de Ignição e Travas',
+      badge: 'Socorro Rápido',
+      shortDesc: 'Remoção de pontas de chave quebradas na ignição ou portas, conserto de miolos emperrados e restauração de travas.',
+      features: ['Extração sem quebrar cilindro', 'Restauração de segredo', 'Peças de reposição'],
+    },
+    {
+      id: 'socorro-bateria',
+      category: 'socorro',
+      icon: '⚡',
+      title: 'Socorro de Carga de Bateria 24h',
+      badge: 'Emergência na Pista',
+      shortDesc: 'Carro apagou ou não dá partida? Enviamos nossa unidade com equipamento de carga assistida segura para ligar seu veículo imediatamente.',
+      features: ['Carga rápida sem pico de tensão', 'Atendimento na rua ou garagem', 'Plantão dia e noite'],
+    },
+    {
+      id: 'socorro-troca-pneus',
+      category: 'socorro',
+      icon: '🛞',
+      title: 'Socorro de Troca de Pneus',
+      badge: 'Chegada Rápida',
+      shortDesc: 'Pneu furado na rodovia ou no trânsito? Nossa equipe faz a substituição ágil e segura pelo estepe para você seguir viagem.',
+      features: ['Chave de impacto e macaco seguro', 'Sinalização e segurança', 'Em toda Campinas e rodovias'],
+    },
+    {
+      id: 'abertura-residencia',
+      category: 'residencial',
+      icon: '🏠',
+      title: 'Abertura e Confecção de Chaves Residenciais',
+      badge: 'Plantão 24h',
+      shortDesc: 'Trancado para fora de casa? Abertura técnica de fechaduras residenciais e comerciais e confecção de cópias na hora.',
+      features: ['Casas, apartamentos e comércios', 'Sem estragar a fechadura', 'Atendimento imediato'],
+    },
+    {
+      id: 'fechadura-digital',
+      category: 'residencial',
+      icon: '📱',
+      title: 'Instalação de Fechaduras Digitais',
+      badge: 'Segurança Moderna',
+      shortDesc: 'Instalação e configuração de fechaduras eletrônicas inteligentes (biometria, senha, tag e app) com acabamento perfeito.',
+      features: ['Principais marcas do mercado', 'Instalação sem rebarbas', 'Treinamento de uso'],
+    },
+    {
+      id: 'fechadura-tetra',
+      category: 'residencial',
+      icon: '🛡️',
+      title: 'Instalação de Fechadura Tetra',
+      badge: 'Alta Resistência',
+      shortDesc: 'Reforce a segurança da sua porta principal contra arrombamentos com a instalação de travas auxiliares Tetra chave de alta segurança.',
+      features: ['Cilindro maciço quádruplo', 'Máxima proteção contra gazua', 'Chaves multiponto'],
+    },
+    {
+      id: 'abertura-cofres',
+      category: 'residencial',
+      icon: '🔐',
+      title: 'Abertura Técnica de Cofres',
+      badge: 'Especializado',
+      shortDesc: 'Perdeu a combinação ou a chave emperrou? Abertura técnica e sigilosa de cofres mecânicos e digitais.',
+      features: ['Sigilo profissional absoluto', 'Métodos não destrutivos', 'Reparo do segredo'],
     },
   ] as ServiceItem[],
 
@@ -144,45 +187,49 @@ export const siteConfig = {
     {
       name: 'Rodrigo Silveira',
       location: 'Lagoa do Taquaral — Campinas',
-      vehicle: 'T-Cross 2022',
+      serviceOrVehicle: 'Abertura T-Cross 2022',
       rating: 5,
       timeAgo: 'Ontem',
-      text: 'Fiquei trancado para fora do carro no estacionamento da Lagoa às 23h de domingo com o celular quase sem bateria. Chamei pelo WhatsApp, o técnico chegou em 18 minutos e abriu em 3 minutos sem arranhar nada. Salvou minha noite!',
+      text: 'Fiquei trancado para fora do carro no estacionamento da Lagoa às 23h de domingo. Chamei o Chaveiro Rodrigues pelo WhatsApp, o técnico chegou em 18 minutos e abriu sem arranhar nada. Atendimento nota 10!',
     },
     {
       name: 'Marcelo Ferreira',
       location: 'Rodovia Dom Pedro I — Valinhos',
-      vehicle: 'Corolla Cross 2023',
+      serviceOrVehicle: 'Chave Presença Corolla Cross',
       rating: 5,
       timeAgo: 'Há 3 dias',
-      text: 'A chave presencial parou de funcionar na volta do trabalho. Na concessionária me pediram 15 dias úteis e R$ 2.600. A van do Chaveiro veio até o posto na Dom Pedro, reprogramou a chave original por menos da metade do preço em 40 minutos.',
+      text: 'A chave presencial parou de funcionar e o carro não ligava. O Chaveiro Rodrigues veio até o posto na Dom Pedro, reprogramou a chave canivete na hora por menos da metade do preço da concessionária.',
     },
     {
-      name: 'Camila Pires',
+      name: 'Mariana Duarte',
       location: 'Cambuí — Campinas',
-      vehicle: 'Jeep Renegade',
+      serviceOrVehicle: 'Carga de Bateria & Abertura',
       rating: 5,
-      timeAgo: 'Há 1 semana',
-      text: 'Perdi a chave no shopping e não tinha reserva. Eles vieram com uma van ultra moderna cheia de máquinas computadorizadas, abriram o carro e fizeram uma chave canivete nova codificada com alarme na hora. Atendimento impecável!',
+      timeAgo: 'Há 5 dias',
+      text: 'Esqueci a chave dentro do carro e a bateria ainda arriou. O Chaveiro Rodrigues chegou super rápido, abriu a porta com gazua pantográfica sem danificar nada e ainda deu a carga de partida. Me salvou!',
     },
     {
       name: 'Eduardo Guimarães',
       location: 'Barão Geraldo — Campinas',
-      vehicle: 'Chevrolet Onix',
+      serviceOrVehicle: 'Fechadura Tetra & Digital',
       rating: 5,
       timeAgo: 'Há 2 semanas',
-      text: 'A ponta da chave quebrou dentro da ignição. Achei que teria que trocar o miolo todo, mas o chaveiro retirou a ponta em 10 minutos com uma ferramenta especial e já cortou outra na hora. Preço honesto e passou cartão na maquininha.',
+      text: 'Contratei para instalar fechadura digital na minha porta de entrada e uma fechadura tetra na área de serviço. Instalação limpa, pontual e muito seguro. Recomendo de olhos fechados.',
     },
   ] as TestimonialItem[],
 
   faqs: [
     {
-      q: 'Quanto tempo demora para o técnico chegar até o meu carro?',
-      a: 'Nosso tempo médio de chegada em qualquer ponto de Campinas é de 20 a 35 minutos. Possuímos veículos de atendimento móvel circulando estrategicamente próximos às principais vias (Norte-Sul, Dom Pedro, Anhanguera e Tapera Grande).',
+      q: 'Quanto tempo demora para a equipe chegar até o meu local?',
+      a: 'Nosso tempo médio de chegada em qualquer ponto de Campinas é de 20 a 35 minutos. Possuímos unidades móveis circulando estrategicamente próximas às principais vias (Norte-Sul, Dom Pedro, Anhanguera e Tapera Grande).',
     },
     {
-      q: 'A abertura do carro risca a lataria ou danifica a fechadura?',
-      a: 'Não. Utilizamos exclusivamente ferramentas profissionais pantográficas e gazua Lishi que operam o segredo interno do tambor de forma cirúrgica. Não entortamos portas nem estragamos borrachas de vedação, preservando 100% da integridade e garantia do seu veículo.',
+      q: 'A abertura do veículo ou residência risca ou danifica a fechadura?',
+      a: 'Não! Utilizamos exclusivamente ferramentas pantográficas e gazuas profissionais que operam o segredo interno do cilindro de forma cirúrgica. Não entortamos portas nem estragamos batentes e borrachas, preservando 100% da garantia do seu patrimônio.',
+    },
+    {
+      q: 'Vocês realizam socorro de carga de bateria e troca de pneu na rua?',
+      a: 'Sim! Além de chaveiro automotivo e residencial, realizamos socorro mecânico leve de emergência: carga assistida de bateria com equipamento anti-pico de tensão e substituição de pneu furado pelo estepe.',
     },
     {
       q: 'Vocês conseguem fazer chave se eu tiver perdido todas (sem cópia reserva)?',
@@ -190,11 +237,11 @@ export const siteConfig = {
     },
     {
       q: 'Quais são as formas de pagamento aceitas?',
-      a: 'Aceitamos Pix, cartões de débito e crédito (em até 12x na maquininha móvel) e dinheiro. Emitimos Nota Fiscal de prestação de serviços e fornecemos garantia formal por escrito.',
+      a: 'Aceitamos Pix, dinheiro e cartões de débito e crédito (em até 12x na maquininha móvel levada pelo profissional). Emitimos comprovante e garantia por escrito.',
     },
     {
-      q: 'Vocês atendem de madrugada e finais de semana?',
-      a: 'Sim! Nosso plantão de emergência opera 24 horas por dia, 7 dias por semana, incluindo feriados e madrugadas.',
+      q: 'Vocês atendem de madrugada e aos finais de semana?',
+      a: 'Sim! Nosso plantão opera 24 horas por dia, 7 dias por semana, incluindo feriados e madrugadas.'
     },
   ],
 };

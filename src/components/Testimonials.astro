@@ -13,14 +13,14 @@ import { siteConfig } from '../data/siteConfig';
         Quem Precisou de Socorro Recomenda
       </h2>
       <p class="mt-2 text-sm sm:text-base text-rescue-text-muted">
-        Veja a experiência real de motoristas atendidos em emergências pela nossa equipe em Campinas.
+        Veja a experiência real de clientes atendidos em emergências pelo Chaveiro Rodrigues em Campinas.
       </p>
     </div>
 
     <!-- Cards de Depoimentos -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {siteConfig.testimonials.map((item) => (
-        <div class="p-6 rounded-2xl bg-rescue-surface/50 border border-rescue-border flex flex-col justify-between hover:border-rescue-amber/40 transition-colors">
+        <div class="p-6 rounded-2xl bg-rescue-surface/50 border border-rescue-border flex flex-col justify-between hover:border-rescue-red/40 transition-colors">
           <div>
             <!-- Estrelas e Tempo -->
             <div class="flex items-center justify-between gap-2 mb-3">
@@ -38,7 +38,7 @@ import { siteConfig } from '../data/siteConfig';
             </p>
           </div>
 
-          <!-- Autor e Veículo -->
+          <!-- Autor e Serviço -->
           <div class="flex items-center justify-between border-t border-rescue-border/60 pt-3 text-xs">
             <div>
               <span class="font-extrabold text-white block">
@@ -48,8 +48,8 @@ import { siteConfig } from '../data/siteConfig';
                 {item.location}
               </span>
             </div>
-            <span class="px-2.5 py-1 rounded bg-rescue-bg-elevated text-rescue-amber text-[11px] font-semibold border border-rescue-border">
-              {item.vehicle}
+            <span class="px-2.5 py-1 rounded-lg bg-rescue-bg-elevated text-rescue-red-light text-[11px] font-semibold border border-rescue-border">
+              {item.serviceOrVehicle}
             </span>
           </div>
         </div>

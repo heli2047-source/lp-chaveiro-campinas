@@ -3,18 +3,19 @@
 @tailwind utilities;
 
 /* ==========================================================================
-   Design Tokens & Estilos Globais — Chaveiro Automotivo 24h (Emergência)
-   Tema: Deep Night Asphalt + Emergency Amber + WhatsApp Emerald
+   Design Tokens & Estilos Globais — Chaveiro Rodrigues 24h
+   Tema: Preto Carbono / Asfalto Noturno + Vermelho Rodrigues (#DA1907) + Cromo Metálico + WhatsApp Emerald
    ========================================================================== */
 
 :root {
-  --rescue-bg: #0A0F1D;
-  --rescue-bg-card: #111827;
-  --rescue-bg-elevated: #161F36;
-  --rescue-surface: #1E293B;
-  --rescue-border: #334155;
-  --rescue-amber: #F59E0B;
-  --rescue-blue: #2563EB;
+  --rescue-bg: #080C14;
+  --rescue-bg-card: #0F1523;
+  --rescue-bg-elevated: #151D2F;
+  --rescue-surface: #1C263B;
+  --rescue-border: #2B384E;
+  --rescue-red: #DA1907;
+  --rescue-red-hover: #B91C1C;
+  --rescue-chrome: #CBD5E1;
   --rescue-whatsapp: #22C55E;
   --rescue-text: #F8FAFC;
   --rescue-text-muted: #94A3B8;
@@ -49,7 +50,7 @@ body {
 
 /* Foco de acessibilidade para navegação por teclado */
 :focus-visible {
-  outline: 2px solid var(--rescue-amber);
+  outline: 2px solid var(--rescue-red);
   outline-offset: 2px;
 }
 
@@ -62,11 +63,18 @@ body {
   justify-content: center;
 }
 
-/* Efeito de brilho de emergência pulsante */
+/* Efeito de brilho vermelho de emergência */
 .emergency-glow {
-  box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 25px -5px rgba(218, 25, 7, 0.45);
 }
 
 .whatsapp-glow {
   box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.45);
+}
+
+/* Gradiente metálico inspirado na lâmina e badge da logo */
+.chrome-gradient-text {
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
