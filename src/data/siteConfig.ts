@@ -34,7 +34,7 @@ export const siteConfig = {
     score: '4.9',
     count: 347,
   },
-  emergencyArrivalMinutes: '30',
+  emergencyArrivalMinutes: '40 a 60',
   discountVsDealer: '60%',
 
   coverage: {
@@ -89,7 +89,7 @@ export const siteConfig = {
       title: 'Abertura de Veículos sem Danos',
       badge: 'Mais Solicitado',
       shortDesc: 'Ficou com a chave trancada dentro do carro? Abertura técnica pantográfica rápida sem arranhar a pintura ou entortar batentes.',
-      features: ['Atendimento em até 30 min', 'Técnica cirúrgica Lishi', 'Todos os modelos e marcas'],
+      features: ['Chegada em 40 a 60 min', 'Técnica cirúrgica Lishi', 'Todos os modelos e marcas'],
     },
     {
       id: 'perda-total-veiculo',
@@ -222,7 +222,7 @@ export const siteConfig = {
   faqs: [
     {
       q: 'Quanto tempo demora para a equipe chegar até o meu local?',
-      a: 'Nosso tempo médio de chegada em qualquer ponto de Campinas é de 20 a 35 minutos. Possuímos unidades móveis circulando estrategicamente próximas às principais vias (Norte-Sul, Dom Pedro, Anhanguera e Tapera Grande).',
+      a: 'Nosso tempo médio para chegada ao local em qualquer ponto de Campinas é de 40 a 60 minutos. Possuímos unidades móveis circulando estrategicamente próximas às principais vias (Norte-Sul, Dom Pedro, Anhanguera e Tapera Grande).',
     },
     {
       q: 'A abertura do veículo ou residência risca ou danifica a fechadura?',
