@@ -28,7 +28,8 @@ export const siteConfig = {
   address: 'Atendimento Móvel em toda Campinas e RMC — Base Central: Av. José de Souza Campos, Cambuí, Campinas - SP',
   city: 'Campinas',
   state: 'SP',
-  cnpj: '48.291.834/0001-92',
+  companyName: 'Tecnochave Chaveiros Ltda-ME',
+  cnpj: '16.932.656/0001-82',
   rating: {
     score: '4.9',
     count: 347,
@@ -237,7 +238,7 @@ export const siteConfig = {
     },
     {
       q: 'Quais são as formas de pagamento aceitas?',
-      a: 'Aceitamos Pix, dinheiro e cartões de débito e crédito (em até 12x na maquininha móvel levada pelo profissional). Emitimos comprovante e garantia por escrito.',
+      a: 'Aceitamos débito, Pix, dinheiro ou cartão na maquininha móvel levada pelo profissional. Emitimos comprovante e fornecemos garantia total',
     },
     {
       q: 'Vocês atendem de madrugada e aos finais de semana?',
