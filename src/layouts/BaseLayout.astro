@@ -9,29 +9,42 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
 }
 
 const {
-  title = 'Chaveiro Rodrigues 24h | Chaveiro Residencial e Automotivo em Campinas',
-  description = 'Socorro 24 horas em Campinas e região: abertura técnica de veículos e residências, chaves codificadas, carga de bateria e troca de pneus com chegada ao local em 40 a 60 minutos.',
+  title = 'Chaveiro 24 Horas em Campinas | Chaveiro Rodrigues Automotivo e Residencial',
+  description = 'Chaveiro 24 horas em Campinas e região. Abertura técnica sem danos de carros e residências, chaves codificadas, carga de bateria e troca de pneus em 40 a 60 min.',
+  canonicalUrl,
+  ogImage,
 } = Astro.props;
+
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${baseUrl}images/logo-icon.png`} />
+    <link rel="sitemap" type="application/xml" href={`${baseUrl}sitemap-index.xml`} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <SeoMeta title={title} description={description} />
+    <SeoMeta title={title} description={description} canonicalUrl={canonicalUrl} ogImage={ogImage} />
     <JsonLd />
   </head>
   <body class="bg-rescue-bg text-rescue-text selection:bg-rescue-red selection:text-white">
+    <!-- Skip to main content (A11y & SEO) -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:font-bold focus:rounded-md focus:shadow-xl">
+      Pular para o conteúdo principal
+    </a>
+
     <!-- Cabeçalho de Emergência com status ao vivo e logomarca -->
     <EmergencyHeader />
 

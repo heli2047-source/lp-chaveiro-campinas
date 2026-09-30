@@ -1,66 +1,137 @@
 ---
 import { siteConfig } from '../../data/siteConfig';
 
-const schemaData = {
+const siteUrl = Astro.site ? Astro.site.origin : 'https://chaveirorodrigues24h.com.br';
+const pageUrl = new URL(Astro.url.pathname, siteUrl).href;
+const logoUrl = new URL(`${import.meta.env.BASE_URL}images/logo-transparent.png`, siteUrl).href;
+const bannerUrl = new URL(`${import.meta.env.BASE_URL}images/logo.png`, siteUrl).href;
+
+const schemaGraph = {
   '@context': 'https://schema.org',
-  '@type': ['Locksmith', 'AutoRepair'],
-  name: siteConfig.name,
-  legalName: siteConfig.companyName,
-  alternateName: siteConfig.tradeName,
-  taxID: siteConfig.cnpj,
-  description: siteConfig.tagline,
-  url: Astro.url.href,
-  telephone: siteConfig.phoneRaw,
-  priceRange: '$$',
-  image: new URL(`${import.meta.env.BASE_URL}images/logo.png`, Astro.site || 'https://chaveirorodrigues24h.com.br').href,
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Av. General Carneiro, 411',
-    addressLocality: siteConfig.city,
-    addressRegion: siteConfig.state,
-    addressCountry: 'BR',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: -22.9056,
-    longitude: -47.0608,
-  },
-  openingHoursSpecification: [
+  '@graph': [
     {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: [
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday',
+      '@type': ['Locksmith', 'AutoRepair', 'EmergencyService'],
+      '@id': `${siteUrl}/#business`,
+      name: siteConfig.name,
+      legalName: siteConfig.companyName,
+      alternateName: siteConfig.tradeName,
+      taxID: siteConfig.cnpj,
+      description: siteConfig.tagline,
+      url: pageUrl,
+      telephone: siteConfig.phoneRaw,
+      priceRange: '$$',
+      image: bannerUrl,
+      logo: logoUrl,
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Av. General Carneiro, 411',
+        addressLocality: siteConfig.city,
+        addressRegion: siteConfig.state,
+        postalCode: '13041-306',
+        addressCountry: 'BR',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: -22.9056,
+        longitude: -47.0608,
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: [
+            'Monday',
+            'Tuesday',
+            'Wednesday',
+            'Thursday',
+            'Friday',
+            'Saturday',
+            'Sunday',
+          ],
+          opens: '00:00',
+          closes: '23:59',
+        },
       ],
-      opens: '00:00',
-      closes: '23:59',
+      areaServed: [
+        ...siteConfig.coverage.neighborhoods.map((n) => ({
+          '@type': 'AdministrativeArea',
+          name: `${n}, Campinas - SP`,
+        })),
+        ...siteConfig.coverage.metroCities.map((c) => ({
+          '@type': 'City',
+          name: `${c} - SP`,
+        })),
+      ],
+      paymentAccepted: 'Cash, Credit Card, Debit Card, Pix',
+      currenciesAccepted: 'BRL',
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: siteConfig.rating.score,
+        reviewCount: siteConfig.rating.count,
+        bestRating: '5',
+        worstRating: '1',
+      },
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Serviços de Chaveiro 24 Horas em Campinas',
+        itemListElement: siteConfig.services.map((service, index) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: service.title,
+            description: service.shortDesc,
+            provider: {
+              '@type': 'Locksmith',
+              name: siteConfig.name,
+              telephone: siteConfig.phoneRaw,
+            },
+          },
+          position: index + 1,
+        })),
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: siteConfig.name,
+      description: 'Chaveiro 24 Horas em Campinas: Automotivo, Residencial e Socorro Emergencial',
+      publisher: {
+        '@id': `${siteUrl}/#business`,
+      },
+      inLanguage: 'pt-BR',
+    },
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: 'Chaveiro 24 Horas em Campinas | Chaveiro Rodrigues Automotivo e Residencial',
+      isPartOf: {
+        '@id': `${siteUrl}/#website`,
+      },
+      about: {
+        '@id': `${siteUrl}/#business`,
+      },
+      description:
+        'Chaveiro 24 horas em Campinas e região. Abertura técnica sem danos de carros e residências, chaves codificadas, carga de bateria e troca de pneus em 40 a 60 min.',
+      inLanguage: 'pt-BR',
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      isPartOf: {
+        '@id': `${pageUrl}#webpage`,
+      },
+      mainEntity: siteConfig.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.a,
+        },
+      })),
     },
   ],
-  areaServed: [
-    ...siteConfig.coverage.neighborhoods.map((n) => ({
-      '@type': 'AdministrativeArea',
-      name: `${n}, Campinas - SP`,
-    })),
-    ...siteConfig.coverage.metroCities.map((c) => ({
-      '@type': 'City',
-      name: `${c} - SP`,
-    })),
-  ],
-  paymentAccepted: 'Cash, Credit Card, Debit Card, Pix',
-  currenciesAccepted: 'BRL',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: siteConfig.rating.score,
-    reviewCount: siteConfig.rating.count,
-    bestRating: '5',
-    worstRating: '1',
-  },
 };
 ---
 
-<script is:inline type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />

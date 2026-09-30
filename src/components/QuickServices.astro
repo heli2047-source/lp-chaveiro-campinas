@@ -10,7 +10,7 @@ import { siteConfig } from '../data/siteConfig';
         🔧 Soluções Imediatas 24 Horas
       </div>
       <h2 class="text-2xl sm:text-4xl font-black text-white tracking-tight">
-        Qual é a Sua Emergência Agora?
+        Qual é a Sua Emergência? Serviços de Chaveiro em Campinas
       </h2>
       <p class="mt-2 text-sm sm:text-base text-rescue-text-muted">
         Nossas vans-oficina móveis estão equipadas para resolver seu problema no local, seja no carro, na residência ou na rodovia.
@@ -23,7 +23,7 @@ import { siteConfig } from '../data/siteConfig';
         const serviceWhatsappUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Olá Chaveiro Rodrigues! Preciso de socorro para *${service.title}* em Campinas.`)}`;
 
         return (
-          <div class="bg-rescue-surface/60 hover:bg-rescue-surface border border-rescue-border/80 hover:border-rescue-red/60 rounded-2xl p-5 sm:p-6 transition-all flex flex-col justify-between group shadow-sm hover:shadow-lg">
+          <article class="bg-rescue-surface/60 hover:bg-rescue-surface border border-rescue-border/80 hover:border-rescue-red/60 rounded-2xl p-5 sm:p-6 transition-all flex flex-col justify-between group shadow-sm hover:shadow-lg">
             <div>
               <div class="flex items-center justify-between gap-2 mb-3">
                 <span class="text-3xl p-2.5 rounded-xl bg-rescue-bg-elevated border border-rescue-border/80 inline-block group-hover:border-rescue-red/40 transition-colors">
@@ -66,7 +66,7 @@ import { siteConfig } from '../data/siteConfig';
               <span>Resolver Esse Problema</span>
               <span class="text-rescue-red-light group-hover:text-rescue-bg font-black">→</span>
             </a>
-          </div>
+          </article>
         );
       })}
     </div>
